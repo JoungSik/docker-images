@@ -39,6 +39,7 @@ docker-compose up -d
 
 이 레포지토리는 다음과 같은 Docker 이미지를 포함하고 있습니다:
 
+- mailcatcher
 - postgres:16
 
 ## 종료하기
