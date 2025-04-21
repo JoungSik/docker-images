@@ -6,7 +6,7 @@ services:
     - "1025:1025"
   postgres:
     image: postgres:16
-    container_name: postgres
+    container_name: docker-images_postgres
     environment:
       TZ: Asia/Seoul
       POSTGRES_USER: postgres
@@ -15,3 +15,23 @@ services:
       - "5432:5432"
     volumes:
       - ${DATA_DIR}/postgres:/var/lib/postgresql/data:delegated
+  mongodb:
+    image: mongo:7.0
+    container_name: docker-images_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongodb
+      MONGO_INITDB_ROOT_PASSWORD: wjdtlr21
+    ports:
+      - "27017:27017"
+    volumes:
+      - ${DATA_DIR}/mongodb:/data/db:delegated
+  mongo-express:
+    image: mongo-express:latest
+    container_name: docker-images_mongo-express
+    environment:
+      ME_CONFIG_BASICAUTH: false
+      ME_CONFIG_MONGODB_URL: mongodb://mongodb:wjdtlr21@mongodb:27017/
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb

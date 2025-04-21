@@ -41,6 +41,25 @@ docker-compose up -d
 
 - mailcatcher
 - postgres:16
+- mongodb:7.0
+- mongo-express:latest
+
+## 서비스 접속 정보
+
+### PostgreSQL
+- 접속 URL: postgresql://localhost:5432
+- 관리자 계정: postgres
+- 관리자 비밀번호: wjdtlr21
+
+### MongoDB
+- 접속 URL: mongodb://localhost:27017
+- 관리자 계정: mongodb
+- 관리자 비밀번호: wjdtlr21
+
+### Mongo Express
+- 웹 인터페이스: http://localhost:8081
+- 관리자 계정: mongodb
+- 관리자 비밀번호: wjdtlr21
 
 ## 종료하기
 
