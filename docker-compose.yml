@@ -1,6 +1,7 @@
 services:
   mailcatcher:
     image: dockage/mailcatcher:0.9.0
+    container_name: docker-images_mailcatcher
     ports:
     - "1080:1080"
     - "1025:1025"
@@ -15,6 +16,17 @@ services:
       - "5432:5432"
     volumes:
       - ${DATA_DIR}/postgres:/var/lib/postgresql/data:delegated
+  mysql:
+    image: mysql:8.0.33
+    container_name: docker-images_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wjdtlr21
+      MYSQL_USER: joungsik
+      MYSQL_PASSWORD: wjdtlr21
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${DATA_DIR}/mysql:/var/lib/mysql
   mongodb:
     image: mongo:7.0
     container_name: docker-images_mongodb
